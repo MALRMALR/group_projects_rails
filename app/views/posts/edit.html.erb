@@ -1,6 +1,36 @@
-<h1>Editing Post</h1>
+<ul>
+  <% @post.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
 
-<%= render 'form', post: @post %>
+<%= form_for(@post) do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :article %>
+    <%= f.text_area :article %>
+  </p>
+  <p>
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+  </p>
+  <p>
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </p>
+  <p>
+    <%= f.label :embed_link %>
+    <%= f.text_field :embed_link %>
+  <p>Note: You must use a Youtube, Vimeo URL OR Soundcloud iframe embed code</p>
+  </p>
+  <p>
+    <%= f.label :attachment %>
+    <%= f.file_field :attachment %>
+  </p>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+  <p><%= f.submit %></p>
+
+<% end %>

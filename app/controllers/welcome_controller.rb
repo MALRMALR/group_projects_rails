@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
 
   def index
-    @all = Post.all
+    @feed = Post.all
   end
 end
